@@ -2,4 +2,4 @@
 
 # Instagram Unfollower FINDER
 
-[다운로드](https://github.com/galaxysollector/IUFINDER2024/releases)
+[최신 버전 다운로드](https://github.com/galaxysollector/IUFINDER2024/releases/latest)
