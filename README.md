@@ -1,3 +1,5 @@
-![](logo.png)
+<img align="right" src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/logo.png" width="425" alt="IUFINDER logo">
 
-[Downloads](https://github.com/galaxysollector/IUFINDER2024/releases/latest)
+# Instagram Unfollower FINDER
+
+[Downloads](https://github.com/galaxysollector/IUFINDER2024/releases)
