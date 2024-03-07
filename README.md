@@ -14,4 +14,4 @@
 
 ## 스크린샷
 
-<img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot1.png">
+<img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot.png">
