@@ -14,4 +14,4 @@
 
 ## 실행 화면
 
-<img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/guide1.png">
+<img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot1.png">
