@@ -14,8 +14,14 @@
 
 ## 스크린샷
 
+### 자동 업데이트
+
 <img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot1.png">
 
+### 시작 화면
+
 <img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot2.png">
+
+### 옵션 선택
 
 <img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot3.png">
