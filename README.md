@@ -16,12 +16,18 @@
 
 ### 자동 업데이트
 
+프로그램을 실행하면 아래와 같이 자동으로 업데이트를 진행합니다.
+
 <img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot1.png">
 
 ### 시작 화면
 
+자동 업데이트가 완료되면 아래와 같이 시작 화면이 표시됩니다.
+
 <img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot2.png">
 
 ### 옵션 선택
+
+시작 화면에서 사용자 이름과 비밀번호를 입력하면 아래와 같이 옵션을 선택할 수 있습니다.
 
 <img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot3.png">
