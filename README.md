@@ -7,7 +7,7 @@
 ## ⚠️ 주의
 
 이 프로그램은 Windows 8.1/10/11만을 지원합니다. **이외의 운영체제는 지원하지 않습니다!**
-또한 자동 업데이트는 **정식 릴리스**로만 업데이트되며 프리뷰 릴리스를 이용하시려면 [이곳](https://github.com/galaxysollector/IUFINDER2024/releases)에서 직접 다운로드 하셔야 합니다.
+또한 자동 업데이트는 **정식 릴리스**로만 업데이트되며 프리뷰 릴리스를 이용하시려면 [이곳](https://github.com/galaxysollector/IUFINDER2024/releases)에서 직접 다운로드하셔야 합니다.
 
 ## 다운로드
 
