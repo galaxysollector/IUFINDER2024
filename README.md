@@ -6,12 +6,13 @@
 
 ## ⚠️ 주의
 
-이 프로그램은 Windows 8.1/10/11만을 지원합니다. **이외의 운영체제는 지원하지 않습니다!**
+이 프로그램은 Windows 10/11만을 지원합니다. **이외의 운영체제는 지원하지 않습니다!**
 또한 자동 업데이트는 **정식 릴리스**로만 업데이트되며 프리뷰 릴리스를 이용하시려면 [이곳](https://github.com/galaxysollector/IUFINDER2024/releases)에서 직접 다운로드하셔야 합니다.
 
 ## 다운로드
 
 [이 링크](https://github.com/galaxysollector/IUFINDER2024/releases/latest)를 클릭하여 최신 버전을 다운로드한 후 프로그램의 지시를 따르십시오.
+**특별한 경우가 아니면 구버전을 사용하지 마십시오!**
 
 ## 스크린샷
 
@@ -29,6 +30,6 @@
 
 ### 옵션 선택
 
-시작 화면에서 사용자 이름과 비밀번호를 입력하면 아래와 같이 옵션을 선택할 수 있습니다.
+아래와 같이 옵션을 선택한 후 사용자 이름과 비밀번호를 입력하면 이후의 과정이 모두 자동으로 진행됩니다.
 
 <img src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/screenshot3.png">
