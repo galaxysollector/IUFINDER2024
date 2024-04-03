@@ -1,6 +1,6 @@
 <img align="left" src="https://raw.githubusercontent.com/galaxysollector/IUFINDER2024/main/logo.png" width="128" alt="IUFINDER logo">
 
-# Instagram Unfollower FINDER
+# 인스타그램 언팔로워 파인더
 
 [![Instagram](https://img.shields.io/badge/%EB%AC%B8%EC%9D%98-%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8-blue.svg?logo=instagram&style=flat-square)](https://www.instagram.com/galaxysollector/)
 
