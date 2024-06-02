@@ -10,7 +10,7 @@
 
 ## 다운로드
 
-[이 링크](https://github.com/galaxysollector/IUFINDER2024/releases/latest)를 클릭하여 최신 버전을 다운로드한 후 프로그램의 지시를 따르십시오.
+[이곳](https://github.com/galaxysollector/IUFINDER2024/releases/latest)으로 이동하여 최신 버전을 다운로드한 후 프로그램의 지시를 따르십시오.
 **특별한 경우가 아니면 구버전을 사용하지 마십시오!**
 
 ## 스크린샷
