@@ -15,7 +15,8 @@
 [이곳](https://github.com/galaxysollector/IUFINDER2024/releases/latest)으로 이동하여 최신 버전을 다운로드한 후 프로그램의 지시를 따르세요.
 **특별한 경우가 아니면 구버전을 사용하지 마세요!**
 
-본인의 스토리를 누가 언제 읽었는지 확인하려면 [ISFINDER2024](https://github.com/galaxysollector/ISFINDER2024)를 이용해보세요.
+본인의 스토리를 누가 언제 읽었는지 확인하려면 [ISFINDER2024](https://github.com/galaxysollector/ISFINDER2024)를 이용해보세요.  
+본인의 게시물의 좋아요를 누른 사용자의 비율을 확인하려면 [IPFINDER2024](https://github.com/galaxysollector/IPFINDER2024)를 이용해보세요.
 
 ## 스크린샷
 
