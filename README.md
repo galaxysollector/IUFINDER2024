@@ -4,6 +4,9 @@
 
 [![Instagram](https://img.shields.io/badge/%EB%AC%B8%EC%9D%98-%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8-blue.svg?logo=instagram&style=flat-square)](https://www.instagram.com/galaxysollector/)
 
+> [!WARNING]
+> **현재 인스타그램에서 사용자의 팔로잉을 모두 불러오지 못하도록 차단하여 언팔로잉, 추가된 팔로잉 항목의 표시에 오류가 있습니다. 해당 문제를 해결하기 위한 다른 방법이 있는지 찾고 있으며 다음 업데이트에 반영될 수 있도록 하겠습니다.**
+
 ## ⚠️ 주의
 
 - 이 프로그램은 ```Windows 11/10 64-bit```, ```Windows 10 32-bit```, ```Windows 11 ARM``` 만을 지원합니다. **이외의 운영체제는 지원하지 않습니다!**
