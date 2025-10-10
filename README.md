@@ -5,7 +5,7 @@
 [![Instagram](https://img.shields.io/badge/%EB%AC%B8%EC%9D%98-%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8-blue.svg?logo=instagram&style=flat-square)](https://www.instagram.com/galaxysollector/)
 
 > [!NOTE]
-> **인스타그램에서 사용자의 모든 팔로잉 항목을 불러오지 못하도록 차단하여 언팔로잉, 추가 및 삭제된 팔로잉 항목 표시가 제대로 되지 않는 문제가 발생하였습니다. 그러나 해당 문제를 해결한 새로운 버전이 출시되었습니다! 아래의 다운로드 링크로 이동하여 최신 버전을 다운로드 하세요!**
+> **새로운 버전이 출시되었습니다! (2025.10.10) 아래의 다운로드 링크로 이동하여 최신 버전을 다운로드 하세요!**
 
 ## ⚠️ 주의
 
@@ -15,7 +15,7 @@
 
 ## 다운로드
 
-[이곳](https://github.com/galaxysollector/IUFINDER2024/releases/latest)으로 이동하여 최신 버전을 다운로드한 후 프로그램의 지시를 따르세요.
+[이곳](https://github.com/galaxysollector/IUFINDER2024/releases/latest)으로 이동하여 최신 버전을 다운로드한 후 프로그램의 안내를 따르세요.
 **특별한 경우가 아니면 구버전을 사용하지 마세요!**
 
 본인의 스토리를 누가 언제 읽었는지 확인하려면 [ISFINDER2024](https://github.com/galaxysollector/ISFINDER2024)를 이용해보세요.  
