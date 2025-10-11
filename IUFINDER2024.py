@@ -12,7 +12,7 @@ import traceback
 try:
     cmd('cls')    #최초 실행 터미널 비우기
 
-    version='12.1.0'
+    version='12.1.1'
     cmd('color 0a')
     print('IUFINDER2024 [Version',version+']')
     print('(c) galaxysollector. All rights reserved.')
@@ -242,7 +242,7 @@ try:
                 else:
                     print('활성화됨)')
                 if headless==1:
-                    print('(HEADLESS 옵션을 사용할 경우 브라우저의 언어가 영어로 바뀌며, 로그가 표시됩니다.)')
+                    print('(HEADLESS 옵션을 사용할 경우 브라우저 로그가 표시됩니다.)')
                 if debugging==1:
                     print('디버그 모드: (기기:',platform.machine()+') (ARM:',end=' ')
                     if arm==0:
@@ -1062,4 +1062,3 @@ try:
 except:
     cmd('cls')
     cmd('color 07')
-    print(traceback.format_exc())
