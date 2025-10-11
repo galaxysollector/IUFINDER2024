@@ -12,7 +12,7 @@ import traceback
 try:
     cmd('cls')    #최초 실행 터미널 비우기
 
-    version='12.0.0'    #12.0.1 본인 이름 요소 업데이트
+    version='12.1.0'
     cmd('color 0a')
     print('IUFINDER2024 [Version',version+']')
     print('(c) galaxysollector. All rights reserved.')
@@ -65,22 +65,26 @@ try:
         while len(browser.find_elements(By.CLASS_NAME,'xemfg65.xa4qsjk.x1ka1v4i.xbv57ra'))==1:
             browser.execute_script("document.querySelector('.x6nl9eh.x1a5l9x9.x7vuprf.x1mg3h75.x1lliihq.x1iyjqo2.xs83m0k.xz65tgg.x1rife3k.x1n2onr6').scrollTo(0,document.querySelector('.x6nl9eh.x1a5l9x9.x7vuprf.x1mg3h75.x1lliihq.x1iyjqo2.xs83m0k.xz65tgg.x1rife3k.x1n2onr6').scrollHeight)")
             if option_num==0:
-                print('\r팔로워 목록을 불러옵니다... ('+str(round(len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))*100/total_num,2))+'% 완료)    ',end='')
+                print('\r팔로워 목록을 불러옵니다...',end=' ')
             elif option_num==1:
-                print('\r팔로잉 목록을 불러옵니다... ('+str(round(len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))*100/total_num,2))+'% 완료)    ',end='')
+                print('\r팔로잉 목록을 불러옵니다...',end=' ')
             else:
-                print('\r목록을 다시 불러옵니다... ('+str(round(len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))*100/total_num,2))+'% 완료)    ',end='')
+                print('\r목록을 다시 불러옵니다...',end=' ')
+            if round(len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))*100/total_num,2)>100:
+                print('(100% 완료)    ',end='')
+            else:
+                print('('+str(round(len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))*100/total_num,2))+'% 완료)    ',end='')
             if len(browser.find_elements(By.CLASS_NAME,'_a9--._ap36._a9_1'))==1:    #자동화 감지 우회
                 browser.find_element(By.CLASS_NAME,'_a9--._ap36._a9_1').click()
                 if debugging==1:
                     print('디버그 모드: 자동화 감지를 우회하였습니다!')
         if option_num==0:
-            print('\r팔로워 목록을 불러옵니다...',end='')
+            print('\r팔로워 목록을 불러옵니다...',end=' ')
         elif option_num==1:
-            print('\r팔로잉 목록을 불러옵니다...',end='')
+            print('\r팔로잉 목록을 불러옵니다...',end=' ')
         else:
-            print('\r목록을 다시 불러옵니다...',end='')
-        print(' (100% 완료)    ')
+            print('\r목록을 다시 불러옵니다...',end=' ')
+        print('(100% 완료)    ')
 
     def elementsList(browser,flist):  #목록 리스트
         f_text_temp=[]   #사용자 이름 임시
@@ -114,9 +118,6 @@ try:
             if f_text[i] not in flist[0]:
                 flist[0].append(f_text[i])
                 flist[1].append(fname_text[i])
-            else:
-                if debugging==1:
-                    print('디버그 모드: 기존 리스트와 중복되는 값을 건너뛰었습니다.')
         return [flist[0],flist[1]]
 
     #운영체제 지원 여부 확인
@@ -270,7 +271,7 @@ try:
                     else:
                         save=0
                     cmd('cls')
-                elif count.upper()=='IAMDEVELOPER' or count=='ㅑ믕ㄷㅍ디ㅐㅔㄷㄱ':  #디버그 모드
+                elif count.upper()=='IAMDEV' or count.upper()=='IAMDEVELOPER' or count=='ㅑ믕ㄷㅍ'or count=='ㅑ믕ㄷㅍ디ㅐㅔㄷㄱ':  #디버그 모드
                     count=0
                     if debugging==0:
                         debugging=1
@@ -416,7 +417,7 @@ try:
                             print(traceback.format_exc())
                     if logincount==0:
                         try:
-                            if browser.current_url[:-9]=='https://www.instagram.com/accounts/onetap/':    #완료 (로그인 성공)
+                            if browser.current_url[:42]=='https://www.instagram.com/accounts/onetap/':    #완료 (로그인 성공)
                                 count=0
                                 logincount=1
                             elif browser.current_url=='https://www.instagram.com/':
@@ -425,7 +426,7 @@ try:
                                 browser.find_element(By.CLASS_NAME,'x1i10hfl.x1qjc9v5.xjbqb8w.xjqpnuy.xa49m3k.xqeqjp1.x2hbi6w.x13fuv20.xu3j5b3.x1q0q8m5.x26u7qi.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x1ypdohk.xdl72j9.x2lah0s.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x2lwn1j.xeuugli.x1n2onr6.x16tdsg8.x1hl2dhg.xggy1nq.x1ja2u2z.x1t137rt.x1q0g3np.x87ps6o.x1lku1pv.x1a2a7pz.x14yjl9h.xudhj91.x18nykt9.xww2gxu.x3nfvp2.x1y1aw1k.x1sxyh0.xwib8y2.xurb0ha').click()
                                 count=0
                                 logincount=1
-                            elif browser.current_url[:-9]=='https://www.instagram.com/accounts/login/two_factor': #완료 (2단계 인증)
+                            elif browser.current_url[:42]=='https://www.instagram.com/accounts/login/two_factor': #완료 (2단계 인증)
                                 cmd('cls')    #다음 화면 터미널 비우기
                                 print('오류: 이 계정은 2단계 인증이 활성화된 계정입니다.\n팁: 계정 설정에서 2단계 인증을 해제한 후 프로그램을 다시 시작해보세요.')
                                 errorlevel=1
@@ -445,7 +446,6 @@ try:
                                 else:   #로그인 성공
                                     count=0
                                     logincount=0
-
                         except NoSuchWindowException:
                             print('오류: Chrome이 강제로 종료되었습니다.')
                             errorlevel=1
@@ -459,7 +459,7 @@ try:
                             nextcount=0
                             try:
                                 while nextcount==0:
-                                    if browser.current_url[:-9]=='https://www.instagram.com/accounts/onetap/':
+                                    if browser.current_url[:42]=='https://www.instagram.com/accounts/onetap/':
                                         nextcount=1
                                         count=0
                                         logincount=1
@@ -522,7 +522,14 @@ try:
                         
                 if errorlevel==0:
                     try:
-                        name=browser.find_element(By.CLASS_NAME,'x1lliihq.x1plvlek.xryxfnj.x1n2onr6.xyejjpt.x15dsfln.x193iq5w.xeuugli.x1fj9vlw.x13faqbe.x1vvkbs.x1s928wv.xhkezso.x1gmr53x.x1cpjm7i.x1fgarty.x1943h6x.x1i0vuye.xvs91rp.x1s688f.x5n08af.x10wh9bi.xpm28yp.x8viiok.x1o7cslx').text #이름
+                        try:
+                            name=browser.find_element(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1oa3qoh.x6s0dn4.x1amjocr.x78zum5.xl56j7k').text #이름
+                            if debugging==1:
+                                print('디버그 모드: 이름 요소 1')
+                        except:
+                            name=browser.find_element(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1e56ztr.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1oa3qoh.x6s0dn4.xmixu3c.x78zum5.xl56j7k').text #이름
+                            if debugging==1:
+                                print('디버그 모드: 이름 요소 2')
                         followers_num=int(browser.find_elements(By.CLASS_NAME,'x5n08af.x1s688f')[1].text)  #팔로워
                         followings_num=int(browser.find_elements(By.CLASS_NAME,'x5n08af.x1s688f')[2].text) #팔로잉
                     except Exception as e:
@@ -739,6 +746,7 @@ try:
                     try:
                         saved=open('IUFINDER2024_saved_'+saveusername+'.txt','r',encoding='utf-8')
                         lines=saved.readlines()
+                        saved.close()
                     except:
                         if debugging==1:
                             print(traceback.format_exc())
@@ -816,35 +824,6 @@ try:
                         for i in followingsinfile:
                             if i not in followingsall:
                                 dfollowing.append(i)
-                        
-                        removeafollower=[]
-                        removedfollower=[]
-                        for i in range(len(afollower)):
-                            for j in range(len(dfollower)):
-                                if afollower[i][0] in dfollower[j]:
-                                    if afollower[i][0]==dfollower[j][0]:
-                                        removeafollower.append(afollower[i])
-                                        removedfollower.append(dfollower[j])
-                        removeafollowing=[]
-                        removedfollowing=[]
-                        for i in range(len(afollowing)):
-                            for j in range(len(dfollowing)):
-                                if afollowing[i][0] in dfollowing[j]:
-                                    if afollowing[i][0]==dfollowing[j][0]:
-                                        removeafollowing.append(afollowing[i])
-                                        removedfollowing.append(dfollowing[j])
-                        for i in removeafollower:
-                            if i in afollower:
-                                afollower.remove(i)
-                        for i in removedfollower:
-                            if i in dfollower:
-                                dfollower.remove(i)
-                        for i in removeafollowing:
-                            if i in afollowing:
-                                afollowing.remove(i)
-                        for i in removedfollowing:
-                            if i in dfollowing:
-                                dfollowing.remove(i)
 
                         if len(afollower)==0:
                             print('추가된 팔로워가 없습니다!')
@@ -886,7 +865,65 @@ try:
                                 else:
                                     print(dfollowing[i][0],'('+dfollowing[i][1]+')',end='   ')
                             print('(-'+str(len(dfollowing))+')')
-                        
+
+                    bls=[]
+                    blscount=0
+                    unfollowercount=0
+                    for i in unfollower:    #블랙리스트 생성
+                        if i in dfollower:
+                            bls.append([])
+                            bls[blscount].append(unfollower[unfollowercount][0])
+                            bls[blscount].append(unfollower[unfollowercount][1])
+                            blscount+=1
+                        unfollowercount+=1
+                    if len(bls)>0:  #블랙리스트 파일 생성
+                        blsinfile=[]
+                        blsfile=0
+                        try:
+                            blacklist=open('IUFINDER2024_BlackList_'+saveusername+'.txt','r',encoding='utf-8')
+                            print('언팔로워 블랙리스트 파일을 불러옵니다...')
+                            lines=blacklist.readlines()
+                            blacklist.close()
+                            linecount=0
+                            for i in range(1,len(lines)):
+                                line=lines[i][:-1]
+                                if line!='':
+                                    linesplit=line.split(maxsplit=1)
+                                    blsinfile.append([])
+                                    if len(linesplit)==1:
+                                        blsinfile[linecount].append(line)
+                                        blsinfile[linecount].append('')
+                                    else:
+                                        blsinfile[linecount].append(linesplit[0])
+                                        blsinfile[linecount].append(linesplit[1][1:-1])
+                                    linecount+=1
+                            blsfile=1
+                            blacklist=open('IUFINDER2024_BlackList_'+saveusername+'.txt','a',encoding='utf-8')
+                        except:
+                            if debugging==1:
+                                print(traceback.format_exc())
+                            print('언팔로워 블랙리스트 파일을 생성합니다...')
+                            blacklist=open('IUFINDER2024_BlackList_'+saveusername+'.txt','w',encoding='utf-8')
+                        try:
+                            if blsfile==0:
+                                blacklist.write('언팔로워 블랙리스트\n\n')
+                            for i in range(len(bls)):
+                                for j in range(len(blsinfile)):
+                                    if bls[i][0] in blsinfile[j]:
+                                        bls.remove(bls[i])
+                                        break
+                            for i in range(len(bls)):
+                                blacklist.write(bls[i][0])
+                                if bls[i][1]!='':
+                                    blacklist.write(' ('+bls[i][1]+')')
+                                blacklist.write('\n')
+                            print('언팔로워 블랙리스트를 업데이트하였습니다.')
+                        except:
+                            if debugging==1:
+                                print(traceback.format_exc())
+                            print("언팔로워 블랙리스트를 저장할 수 없습니다. 이 항목을 건너뜁니다...")
+                        blacklist.close()
+
             #Chrome 종료
                 
             if start==1:
@@ -1025,3 +1062,4 @@ try:
 except:
     cmd('cls')
     cmd('color 07')
+    print(traceback.format_exc())
