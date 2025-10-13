@@ -12,7 +12,7 @@ import traceback
 try:
     cmd('cls')    #최초 실행 터미널 비우기
 
-    version='12.1.2'
+    version='12.1.3'
     cmd('color 0a')
     print('IUFINDER2024 [Version',version+']')
     print('(c) galaxysollector. All rights reserved.')
@@ -90,8 +90,8 @@ try:
         f_text_temp=[]   #사용자 이름 임시
         f_text=[]   #사용자 이름
         fname_text=[]   #이름
-        f=browser.find_elements(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x78zum5.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1qjc9v5.x1oa3qoh.x1nhvcw1')
-        fname=browser.find_elements(By.CLASS_NAME,'x1lliihq.x1plvlek.xryxfnj.x1n2onr6.xyejjpt.x15dsfln.x193iq5w.xeuugli.x1fj9vlw.x13faqbe.x1vvkbs.x1s928wv.xhkezso.x1gmr53x.x1cpjm7i.x1fgarty.x1943h6x.x1i0vuye.xvs91rp.xo1l8bm.x1roi4f4.x10wh9bi.xpm28yp.x8viiok.x1o7cslx')
+        f=browser.find_elements(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x78zum5.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1qjc9v5.x1oa3qoh.x1nhvcw1')    #사용자 이름 요소
+        fname=browser.find_elements(By.CLASS_NAME,'x1lliihq.x1plvlek.xryxfnj.x1n2onr6.xyejjpt.x15dsfln.x193iq5w.xeuugli.x1fj9vlw.x13faqbe.x1vvkbs.x1s928wv.xhkezso.x1gmr53x.x1cpjm7i.x1fgarty.x1943h6x.x1i0vuye.xvs91rp.xo1l8bm.x1roi4f4.x10wh9bi.xpm28yp.x8viiok.x1o7cslx')    #이름 요소
         for i in range(len(f)): #사용자 이름 임시 리스트 생성
             f_text_temp.append(f[i].text)
         for i in f_text_temp:   #사용자 이름 중복 검사, 사용자 이름 리스트 생성
@@ -523,7 +523,7 @@ try:
                 if errorlevel==0:
                     try:
                         try:
-                            name=browser.find_element(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1oa3qoh.x6s0dn4.x1amjocr.x78zum5.xl56j7k').text #이름
+                            name=unicodedata.normalize('NFC',browser.find_element(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1oa3qoh.x6s0dn4.x1amjocr.x78zum5.xl56j7k').text) #이름
                             if debugging==1:
                                 print('디버그 모드: 이름 요소 1')
                         except:
@@ -532,6 +532,7 @@ try:
                                 print('디버그 모드: 이름 요소 2')
                         followers_num=int(browser.find_elements(By.CLASS_NAME,'x5n08af.x1s688f')[1].text)  #팔로워
                         followings_num=int(browser.find_elements(By.CLASS_NAME,'x5n08af.x1s688f')[2].text) #팔로잉
+                        browser.execute_script("document.querySelector('.x1xgvd2v.x1o5hw5a.xaeubzz.x1cy8zhl.xvbhtw8.x9f619.x78zum5.xdt5ytf.x1gvbg2u.x1y1aw1k.xpdmqnj.xx6bls6.x1g0dm76').remove()")    #탐색 창 삭제
                     except Exception as e:
                         if str(e)[9:21]=='disconnected':
                             print('\n오류: Chrome이 강제로 종료되었습니다.')
