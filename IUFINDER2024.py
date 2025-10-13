@@ -12,7 +12,7 @@ import traceback
 try:
     cmd('cls')    #최초 실행 터미널 비우기
 
-    version='12.1.1'    #12.2.0 일부 계정 목록 비교 오류 해결 예정
+    version='12.1.2'
     cmd('color 0a')
     print('IUFINDER2024 [Version',version+']')
     print('(c) galaxysollector. All rights reserved.')
@@ -866,63 +866,63 @@ try:
                                     print(dfollowing[i][0],'('+dfollowing[i][1]+')',end='   ')
                             print('(-'+str(len(dfollowing))+')')
 
-                    bls=[]
-                    blscount=0
-                    unfollowercount=0
-                    for i in unfollower:    #블랙리스트 생성
-                        if i in dfollower:
-                            bls.append([])
-                            bls[blscount].append(unfollower[unfollowercount][0])
-                            bls[blscount].append(unfollower[unfollowercount][1])
-                            blscount+=1
-                        unfollowercount+=1
-                    if len(bls)>0:  #블랙리스트 파일 생성
-                        blsinfile=[]
-                        blsfile=0
-                        try:
-                            blacklist=open('IUFINDER2024_BlackList_'+saveusername+'.txt','r',encoding='utf-8')
-                            print('언팔로워 블랙리스트 파일을 불러옵니다...')
-                            lines=blacklist.readlines()
+                        bls=[]
+                        blscount=0
+                        unfollowercount=0
+                        for i in unfollower:    #블랙리스트 생성
+                            if i in dfollower:
+                                bls.append([])
+                                bls[blscount].append(unfollower[unfollowercount][0])
+                                bls[blscount].append(unfollower[unfollowercount][1])
+                                blscount+=1
+                            unfollowercount+=1
+                        if len(bls)>0:  #블랙리스트 파일 생성
+                            blsinfile=[]
+                            blsfile=0
+                            try:
+                                blacklist=open('IUFINDER2024_BlackList_'+saveusername+'.txt','r',encoding='utf-8')
+                                print('언팔로워 블랙리스트 파일을 불러옵니다...')
+                                lines=blacklist.readlines()
+                                blacklist.close()
+                                linecount=0
+                                for i in range(1,len(lines)):
+                                    line=lines[i][:-1]
+                                    if line!='':
+                                        linesplit=line.split(maxsplit=1)
+                                        blsinfile.append([])
+                                        if len(linesplit)==1:
+                                            blsinfile[linecount].append(line)
+                                            blsinfile[linecount].append('')
+                                        else:
+                                            blsinfile[linecount].append(linesplit[0])
+                                            blsinfile[linecount].append(linesplit[1][1:-1])
+                                        linecount+=1
+                                blsfile=1
+                                blacklist=open('IUFINDER2024_BlackList_'+saveusername+'.txt','a',encoding='utf-8')
+                            except:
+                                if debugging==1:
+                                    print(traceback.format_exc())
+                                print('언팔로워 블랙리스트 파일을 생성합니다...')
+                                blacklist=open('IUFINDER2024_BlackList_'+saveusername+'.txt','w',encoding='utf-8')
+                            try:
+                                if blsfile==0:
+                                    blacklist.write('언팔로워 블랙리스트\n\n')
+                                for i in range(len(bls)):
+                                    for j in range(len(blsinfile)):
+                                        if bls[i][0] in blsinfile[j]:
+                                            bls.remove(bls[i])
+                                            break
+                                for i in range(len(bls)):
+                                    blacklist.write(bls[i][0])
+                                    if bls[i][1]!='':
+                                        blacklist.write(' ('+bls[i][1]+')')
+                                    blacklist.write('\n')
+                                print('언팔로워 블랙리스트를 업데이트하였습니다.')
+                            except:
+                                if debugging==1:
+                                    print(traceback.format_exc())
+                                print("언팔로워 블랙리스트를 저장할 수 없습니다. 이 항목을 건너뜁니다...")
                             blacklist.close()
-                            linecount=0
-                            for i in range(1,len(lines)):
-                                line=lines[i][:-1]
-                                if line!='':
-                                    linesplit=line.split(maxsplit=1)
-                                    blsinfile.append([])
-                                    if len(linesplit)==1:
-                                        blsinfile[linecount].append(line)
-                                        blsinfile[linecount].append('')
-                                    else:
-                                        blsinfile[linecount].append(linesplit[0])
-                                        blsinfile[linecount].append(linesplit[1][1:-1])
-                                    linecount+=1
-                            blsfile=1
-                            blacklist=open('IUFINDER2024_BlackList_'+saveusername+'.txt','a',encoding='utf-8')
-                        except:
-                            if debugging==1:
-                                print(traceback.format_exc())
-                            print('언팔로워 블랙리스트 파일을 생성합니다...')
-                            blacklist=open('IUFINDER2024_BlackList_'+saveusername+'.txt','w',encoding='utf-8')
-                        try:
-                            if blsfile==0:
-                                blacklist.write('언팔로워 블랙리스트\n\n')
-                            for i in range(len(bls)):
-                                for j in range(len(blsinfile)):
-                                    if bls[i][0] in blsinfile[j]:
-                                        bls.remove(bls[i])
-                                        break
-                            for i in range(len(bls)):
-                                blacklist.write(bls[i][0])
-                                if bls[i][1]!='':
-                                    blacklist.write(' ('+bls[i][1]+')')
-                                blacklist.write('\n')
-                            print('언팔로워 블랙리스트를 업데이트하였습니다.')
-                        except:
-                            if debugging==1:
-                                print(traceback.format_exc())
-                            print("언팔로워 블랙리스트를 저장할 수 없습니다. 이 항목을 건너뜁니다...")
-                        blacklist.close()
 
             #Chrome 종료
                 
@@ -1062,4 +1062,4 @@ try:
 except:
     cmd('cls')
     cmd('color 07')
-    print(traceback.format_exc())
+    print(traceback.format_exc())   #치명적 오류 로그 출력
