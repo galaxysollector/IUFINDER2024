@@ -12,7 +12,7 @@ import traceback
 try:
     cmd('cls')    #최초 실행 터미널 비우기
 
-    version='12.1.1'
+    version='12.1.1'    #12.2.0 일부 계정 목록 비교 오류 해결 예정
     cmd('color 0a')
     print('IUFINDER2024 [Version',version+']')
     print('(c) galaxysollector. All rights reserved.')
@@ -1062,3 +1062,4 @@ try:
 except:
     cmd('cls')
     cmd('color 07')
+    print(traceback.format_exc())
