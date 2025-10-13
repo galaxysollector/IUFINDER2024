@@ -5,7 +5,7 @@
 [![Instagram](https://img.shields.io/badge/%EB%AC%B8%EC%9D%98-%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8-blue.svg?logo=instagram&style=flat-square)](https://www.instagram.com/anythingdeveloper/)
 
 > [!NOTE]
-> **새로운 버전(12.1.1)이 출시되었습니다! 아래의 다운로드 링크로 이동하여 최신 버전을 다운로드 하세요!**
+> **새로운 버전(12.1.2)이 출시되었습니다! 아래의 다운로드 링크로 이동하여 최신 버전을 다운로드 하세요!**
 
 ## ⚠️ 주의
 
