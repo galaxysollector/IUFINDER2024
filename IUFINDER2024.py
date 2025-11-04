@@ -12,7 +12,7 @@ import traceback
 try:
     cmd('cls')    #최초 실행 터미널 비우기
 
-    version='12.1.3'
+    version='12.1.4'
     cmd('color 0a')
     print('IUFINDER2024 [Version',version+']')
     print('(c) galaxysollector. All rights reserved.')
@@ -497,7 +497,7 @@ try:
 
                 try:
                     if debugging==0:
-                        profilebutton=browser.find_elements(By.CLASS_NAME,'x1i10hfl.xjbqb8w.x1ejq31n.x18oe1m7.x1sy0etr.xstzfhl.x972fbf.x10w94by.x1qhh985.x14e42zd.x9f619.x1ypdohk.xt0psk2.x3ct3a4.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x4gyw5p._a6hd')    #프로필 버튼
+                        profilebutton=browser.find_elements(By.CLASS_NAME,'x9f619.x3nfvp2.x1obq294.x5a5i1n.xde0f50.x15x8krk.xr9ek0c.xjpr12u.xo237n4.x6pnmvc.x7nr27j.x12dmmrz.xz9dl7a.xpdmqnj.xsag5q8.x1g0dm76.x80pfx3.x159b3zp')    #프로필 버튼
                         browser.execute_script("arguments[0].click();",profilebutton[-3])    #프로필 버튼 클릭
                     else:
                         browser.get('https://www.instagram.com/'+usernamed+'/')
@@ -522,17 +522,22 @@ try:
                         
                 if errorlevel==0:
                     try:
+                        #이름 요소 지정
                         try:
-                            name=unicodedata.normalize('NFC',browser.find_element(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1oa3qoh.x6s0dn4.x1amjocr.x78zum5.xl56j7k').text) #이름
+                            name=unicodedata.normalize('NFC',browser.find_element(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1oa3qoh.x6s0dn4.x1amjocr.x78zum5.xl56j7k').text)
                             if debugging==1:
                                 print('디버그 모드: 이름 요소 1')
                         except:
-                            name=browser.find_element(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1e56ztr.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1oa3qoh.x6s0dn4.xmixu3c.x78zum5.xl56j7k').text #이름
+                            name=unicodedata.normalize('NFC',browser.find_element(By.CLASS_NAME,'html-div.xdj266r.x14z9mp.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x9f619.xjbqb8w.x15mokao.x1ga7v0g.x16uus16.xbiv7yw.x1e56ztr.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1oa3qoh.x6s0dn4.xmixu3c.x78zum5.xl56j7k').text)
                             if debugging==1:
                                 print('디버그 모드: 이름 요소 2')
                         followers_num=int(browser.find_elements(By.CLASS_NAME,'x5n08af.x1s688f')[1].text)  #팔로워
                         followings_num=int(browser.find_elements(By.CLASS_NAME,'x5n08af.x1s688f')[2].text) #팔로잉
-                        browser.execute_script("document.querySelector('.x1xgvd2v.x1o5hw5a.xaeubzz.x1cy8zhl.xvbhtw8.x9f619.x78zum5.xdt5ytf.x1gvbg2u.x1y1aw1k.xpdmqnj.xx6bls6.x1g0dm76').remove()")    #탐색 창 삭제
+                        #탐색 창 제거
+                        try:    #구형
+                            browser.execute_script("document.querySelector('.x1xgvd2v.x1o5hw5a.xaeubzz.x1cy8zhl.xvbhtw8.x9f619.x78zum5.xdt5ytf.x1gvbg2u.x1y1aw1k.xpdmqnj.xx6bls6.x1g0dm76').remove()")
+                        except: #신형
+                            browser.execute_script("document.querySelector('.x1cy8zhl.x9f619.x78zum5.xdt5ytf.x1gvbg2u.x1qughib.x1y1aw1k.xpdmqnj.xx6bls6.x1g0dm76.xh8yej3').remove()")
                     except Exception as e:
                         if str(e)[9:21]=='disconnected':
                             print('\n오류: Chrome이 강제로 종료되었습니다.')
