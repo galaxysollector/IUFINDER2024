@@ -12,7 +12,7 @@ import traceback
 try:
     cmd('cls')    #최초 실행 터미널 비우기
 
-    version='12.1.4'
+    version='12.1.5'
     cmd('color 0a')
     print('IUFINDER2024 [Version',version+']')
     print('(c) galaxysollector. All rights reserved.')
@@ -830,6 +830,35 @@ try:
                         for i in followingsinfile:
                             if i not in followingsall:
                                 dfollowing.append(i)
+
+                        removeafollower=[]
+                        removedfollower=[]
+                        for i in range(len(afollower)):
+                            for j in range(len(dfollower)):
+                                if afollower[i][0] in dfollower[j]:
+                                    if afollower[i][0]==dfollower[j][0]:
+                                        removeafollower.append(afollower[i])
+                                        removedfollower.append(dfollower[j])
+                        removeafollowing=[]
+                        removedfollowing=[]
+                        for i in range(len(afollowing)):
+                            for j in range(len(dfollowing)):
+                                if afollowing[i][0] in dfollowing[j]:
+                                    if afollowing[i][0]==dfollowing[j][0]:
+                                        removeafollowing.append(afollowing[i])
+                                        removedfollowing.append(dfollowing[j])
+                        for i in removeafollower:
+                            if i in afollower:
+                                afollower.remove(i)
+                        for i in removedfollower:
+                            if i in dfollower:
+                                dfollower.remove(i)
+                        for i in removeafollowing:
+                            if i in afollowing:
+                                afollowing.remove(i)
+                        for i in removedfollowing:
+                            if i in dfollowing:
+                                dfollowing.remove(i)
 
                         if len(afollower)==0:
                             print('추가된 팔로워가 없습니다!')
