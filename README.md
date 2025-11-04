@@ -5,7 +5,7 @@
 [![Instagram](https://img.shields.io/badge/%EB%AC%B8%EC%9D%98-%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8-blue.svg?logo=instagram&style=flat-square)](https://www.instagram.com/anythingdeveloper/)
 
 > [!NOTE]
-> **새로운 버전(12.1.3)이 출시되었습니다! 아래의 다운로드 링크로 이동하여 최신 버전을 다운로드 하세요!**
+> **새로운 버전(12.1.4)이 출시되었습니다! 아래의 다운로드 링크로 이동하여 최신 버전을 다운로드 하세요!**
 
 > [!NOTE]
 > **계정에 따라 인스타그램의 작동 방식이 다르기 때문에 일부 계정에서 오류가 발생할 수도 있습니다. 오류 발생 시 위의 인스타그램으로 제보해주세요.**
