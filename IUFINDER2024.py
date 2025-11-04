@@ -1,18 +1,18 @@
-﻿from os import system as cmd   #터미널 화면
-from time import sleep,localtime #대기
-from getpass import getpass  #ENTER 또는 비밀번호
-from selenium import webdriver  #브라우저 선택
-from selenium.webdriver.common.by import By #요소 찾기
-from selenium.common.exceptions import NoSuchWindowException,JavascriptException    #강제 종료 오류
-import requests #자동 업데이트
-import platform #운영체제 지원 여부 확인
-import unicodedata  #자모 분리 방지
-import traceback
+﻿try:
+    import traceback
+    from os import system as cmd   #터미널 화면
+    from time import sleep,localtime #대기
+    from getpass import getpass  #ENTER 또는 비밀번호
+    from selenium import webdriver  #브라우저 선택
+    from selenium.webdriver.common.by import By #요소 찾기
+    from selenium.common.exceptions import NoSuchWindowException,JavascriptException    #강제 종료 오류
+    import requests #자동 업데이트
+    import platform #운영체제 지원 여부 확인
+    import unicodedata  #자모 분리 방지
 
-try:
     cmd('cls')    #최초 실행 터미널 비우기
 
-    version='12.1.5'
+    version='12.1.6'
     cmd('color 0a')
     print('IUFINDER2024 [Version',version+']')
     print('(c) galaxysollector. All rights reserved.')
@@ -831,6 +831,8 @@ try:
                             if i not in followingsall:
                                 dfollowing.append(i)
 
+                        #이름만 변경한 사용자 제거
+
                         removeafollower=[]
                         removedfollower=[]
                         for i in range(len(afollower)):
@@ -1097,4 +1099,4 @@ try:
 except:
     cmd('cls')
     cmd('color 07')
-    print(traceback.format_exc())   #치명적 오류 로그 출력
+    print('오류: 치명적인 오류가 발생하였습니다.\n오류를 제보하려면 아래의 로그를 인스타그램 @anythingdeveloper 으로 보내주세요.\n\n',traceback.format_exc())   #치명적 오류 로그 출력
