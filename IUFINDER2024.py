@@ -12,7 +12,7 @@
 
     cmd('cls')    #최초 실행 터미널 비우기
 
-    version='12.1.6'
+    version='12.1.7'
     cmd('color 0a')
     print('IUFINDER2024 [Version',version+']')
     print('(c) galaxysollector. All rights reserved.')
@@ -68,8 +68,12 @@
                 print('\r팔로워 목록을 불러옵니다...',end=' ')
             elif option_num==1:
                 print('\r팔로잉 목록을 불러옵니다...',end=' ')
-            else:
+            elif option_num==2:
                 print('\r목록을 다시 불러옵니다...',end=' ')
+            elif option_num==3:
+                print('\r목록을 마지막으로 불러옵니다...',end=' ')
+            elif option_num==4:
+                print('\r목록을 마지막으로 검증합니다...',end=' ')
             if round(len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))*100/total_num,2)>100:
                 print('(100% 완료)    ',end='')
             else:
@@ -82,11 +86,15 @@
             print('\r팔로워 목록을 불러옵니다...',end=' ')
         elif option_num==1:
             print('\r팔로잉 목록을 불러옵니다...',end=' ')
-        else:
+        elif option_num==2:
             print('\r목록을 다시 불러옵니다...',end=' ')
+        elif option_num==3:
+            print('\r목록을 마지막으로 불러옵니다...',end=' ')
+        elif option_num==4:
+            print('\r목록을 마지막으로 검증합니다...',end=' ')
         print('(100% 완료)    ')
 
-    def elementsList(browser,flist):  #목록 리스트
+    def elementsList(browser,flist=[[],[]]):  #목록 리스트 업데이트
         f_text_temp=[]   #사용자 이름 임시
         f_text=[]   #사용자 이름
         fname_text=[]   #이름
@@ -550,7 +558,7 @@
                 if errorlevel==0:
                     try:
                         scrollFrom(browser,followers_num,0)
-                        followers_text,followersname_text=elementsList(browser,[[],[]])
+                        followers_text,followersname_text=elementsList(browser)
                         if len(followers_text)!=followers_num:
                             if len(followers_text)==0:
                                 print('\n오류: 팔로워 목록이 존재하지 않습니다.\n팁: 일시적인 오류일 수 있습니다. 나중에 다시 시도해보세요.')
@@ -559,20 +567,29 @@
                                 followersall_num_past=0
                                 listpass=0
                                 while listpass==0:
-                                    if followersall_num_past<len(followers_text) and len(followers_text)<followers_num:
-                                        print('주의: 수가 일치하지 않습니다. (목록:',str(len(followers_text))+', 서버:',str(followers_num)+')')
-                                        if followersall_num_past<len(followers_text):
-                                            followersall_num_past=len(followers_text)
+                                    if followersall_num_past<len(followers_text):   #기존 목록 비교
+                                        if len(followers_text)<followers_num:
+                                            print('주의: 수가 일치하지 않습니다. (목록:',str(len(followers_text))+', 서버:',str(followers_num)+')')
                                             print('목록을 다시 불러옵니다...',end='')
-                                            browser.find_element(By.CLASS_NAME,'_abl-').click() #닫기 버튼
-                                            while len(browser.find_elements(By.CLASS_NAME,'x1i10hfl.xjbqb8w.x1ejq31n.x18oe1m7.x1sy0etr.xstzfhl.x972fbf.x10w94by.x1qhh985.x14e42zd.x9f619.x1ypdohk.xt0psk2.x3ct3a4.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x5n08af.x9n4tj2._a6hd'))<2:
-                                                pass
-                                            button=browser.find_elements(By.CLASS_NAME,'x1i10hfl.xjbqb8w.x1ejq31n.x18oe1m7.x1sy0etr.xstzfhl.x972fbf.x10w94by.x1qhh985.x14e42zd.x9f619.x1ypdohk.xt0psk2.x3ct3a4.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x5n08af.x9n4tj2._a6hd')
-                                            button[0].click()
-                                            while len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))==0:
-                                                pass
-                                            scrollFrom(browser,followers_num,2)
-                                            followers_text,followersname_text=elementsList(browser,[followers_text,followersname_text])
+                                            option_num=2
+                                        elif len(followers_text)==followers_num:
+                                            print('팔로잉 수:',len(followers_text))
+                                            print('목록을 마지막으로 불러옵니다...',end='')
+                                            option_num=3
+                                        else:
+                                            print('주의: 수가 일치하지 않습니다. (목록:',str(len(followers_text))+', 서버:',str(followers_num)+')')
+                                            print('목록을 마지막으로 검증합니다...',end='')
+                                            option_num=4
+                                        followersall_num_past=len(followers_text) #기존 목록 업데이트
+                                        browser.find_element(By.CLASS_NAME,'_abl-').click() #닫기 버튼
+                                        while len(browser.find_elements(By.CLASS_NAME,'x1i10hfl.xjbqb8w.x1ejq31n.x18oe1m7.x1sy0etr.xstzfhl.x972fbf.x10w94by.x1qhh985.x14e42zd.x9f619.x1ypdohk.xt0psk2.x3ct3a4.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x5n08af.x9n4tj2._a6hd'))<2:
+                                            pass
+                                        button=browser.find_elements(By.CLASS_NAME,'x1i10hfl.xjbqb8w.x1ejq31n.x18oe1m7.x1sy0etr.xstzfhl.x972fbf.x10w94by.x1qhh985.x14e42zd.x9f619.x1ypdohk.xt0psk2.x3ct3a4.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x5n08af.x9n4tj2._a6hd')
+                                        button[0].click()
+                                        while len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))==0:
+                                            pass
+                                        scrollFrom(browser,followers_num,option_num)
+                                        followers_text,followersname_text=elementsList(browser,[followers_text,followersname_text])
                                     else:
                                         listpass=1
                                         if len(followers_text)!=followers_num:
@@ -601,7 +618,7 @@
             #팔로잉
         
             if errorlevel==0:
-                print('팔로워 수:',str(len(followers_text)))
+                print('팔로워 수:',len(followers_text))
                 if debugging==1:
                     print(followersall)
         
@@ -635,7 +652,7 @@
                 if errorlevel==0:
                     try:
                         scrollFrom(browser,followings_num,1)
-                        followings_text,followingsname_text=elementsList(browser,[[],[]])
+                        followings_text,followingsname_text=elementsList(browser)
                         if len(followings_text)!=followings_num:
                             if len(followings_text)==0:
                                 print('\n오류: 팔로잉 목록이 존재하지 않습니다.\n팁: 일시적인 오류일 수 있습니다. 나중에 다시 시도해보세요.')
@@ -644,20 +661,29 @@
                                 followingsall_num_past=0
                                 listpass=0
                                 while listpass==0:
-                                    if followingsall_num_past<len(followings_text) and len(followings_text)<followings_num:
-                                        print('주의: 수가 일치하지 않습니다. (목록:',str(len(followings_text))+', 서버:',str(followings_num)+')')
-                                        if followingsall_num_past<len(followings_text):
-                                            followingsall_num_past=len(followings_text)
+                                    if followingsall_num_past<len(followings_text): #기존 목록 비교
+                                        if len(followings_text)<followings_num:
+                                            print('주의: 수가 일치하지 않습니다. (목록:',str(len(followings_text))+', 서버:',str(followings_num)+')')
                                             print('목록을 다시 불러옵니다...',end='')
-                                            browser.find_element(By.CLASS_NAME,'_abl-').click() #닫기 버튼
-                                            while len(browser.find_elements(By.CLASS_NAME,'x1i10hfl.xjbqb8w.x1ejq31n.x18oe1m7.x1sy0etr.xstzfhl.x972fbf.x10w94by.x1qhh985.x14e42zd.x9f619.x1ypdohk.xt0psk2.x3ct3a4.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x5n08af.x9n4tj2._a6hd'))<2:
-                                                pass
-                                            button=browser.find_elements(By.CLASS_NAME,'x1i10hfl.xjbqb8w.x1ejq31n.x18oe1m7.x1sy0etr.xstzfhl.x972fbf.x10w94by.x1qhh985.x14e42zd.x9f619.x1ypdohk.xt0psk2.x3ct3a4.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x5n08af.x9n4tj2._a6hd')
-                                            button[1].click()
-                                            while len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))==0:
-                                                pass
-                                            scrollFrom(browser,followings_num,2)
-                                            followings_text,followingsname_text=elementsList(browser,[followings_text,followingsname_text])
+                                            option_num=2
+                                        elif len(followings_text)==followings_num:
+                                            print('팔로잉 수:',len(followings_text))
+                                            print('목록을 마지막으로 불러옵니다...',end='')
+                                            option_num=3
+                                        else:
+                                            print('주의: 수가 일치하지 않습니다. (목록:',str(len(followings_text))+', 서버:',str(followings_num)+')')
+                                            print('목록을 마지막으로 검증합니다...',end='')
+                                            option_num=4
+                                        followingsall_num_past=len(followings_text) #기존 목록 업데이트
+                                        browser.find_element(By.CLASS_NAME,'_abl-').click() #닫기 버튼
+                                        while len(browser.find_elements(By.CLASS_NAME,'x1i10hfl.xjbqb8w.x1ejq31n.x18oe1m7.x1sy0etr.xstzfhl.x972fbf.x10w94by.x1qhh985.x14e42zd.x9f619.x1ypdohk.xt0psk2.x3ct3a4.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x5n08af.x9n4tj2._a6hd'))<2:
+                                            pass
+                                        button=browser.find_elements(By.CLASS_NAME,'x1i10hfl.xjbqb8w.x1ejq31n.x18oe1m7.x1sy0etr.xstzfhl.x972fbf.x10w94by.x1qhh985.x14e42zd.x9f619.x1ypdohk.xt0psk2.x3ct3a4.xdj266r.x14z9mp.xat24cr.x1lziwak.xexx8yu.xyri2b.x18d9i69.x1c1uobl.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.x5n08af.x9n4tj2._a6hd')
+                                        button[1].click()
+                                        while len(browser.find_elements(By.CLASS_NAME,'x1qnrgzn.x1cek8b2.xb10e19.x19rwo8q.x1lliihq.x193iq5w.xh8yej3'))==0:
+                                            pass
+                                        scrollFrom(browser,followings_num,option_num)
+                                        followings_text,followingsname_text=elementsList(browser,[followings_text,followingsname_text])
                                     else:
                                         listpass=1
                                         if len(followings_text)!=followings_num:
@@ -686,7 +712,7 @@
             #결과
         
             if errorlevel==0:
-                print('팔로잉 수:',str(len(followings_text)))
+                print('팔로잉 수:',len(followings_text))
                 if debugging==1:
                     print(followingsall)
                 
